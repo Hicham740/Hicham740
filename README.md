@@ -1,4 +1,4 @@
-# ARP Spoofing Lab — Professional Guide
+# ARP Spoofing Lab 
 
 ## Overview
 
