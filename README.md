@@ -32,7 +32,7 @@ The lab demonstrates how ARP works on a local network, how a Man‑in‑the‑Mi
   * `192.168.50.10` — Kali
   * `192.168.50.20` — Ubuntu
 
-> *Suggested image placeholder: network_topology.png*
+![](images/cover.png)
 
 ---
 
@@ -48,7 +48,7 @@ The lab demonstrates how ARP works on a local network, how a Man‑in‑the‑Mi
    * **Enable DHCP:** checked
 5. Click **OK** to save.
 
-> *Insert screenshot: virtualbox_create_nat.png*
+![](images/cover.png)
 
 ---
 
@@ -62,7 +62,7 @@ The lab demonstrates how ARP works on a local network, how a Man‑in‑the‑Mi
 
 * Same steps as Kali: Adapter 1 → NAT Network → `ARP_Lab` → OK.
 
-> *Insert screenshot: vm_network_settings.png*
+![](images/cover.png)
 
 ---
 
@@ -92,7 +92,7 @@ ping -c 4 192.168.50.20
 
 If replies arrive, the VMs can communicate.
 
-> *Insert screenshot: ping_test.png*
+![](images/cover.png)
 
 ---
 
@@ -117,7 +117,7 @@ sudo apt install firefox -y
 
 A web browser is sufficient for generating HTTP requests for the demo.
 
-> *Insert screenshot: install_tools.png*
+![](images/cover.png)
 
 ---
 
@@ -130,7 +130,7 @@ Suggested test sites:
 * [http://neverssl.com/](http://neverssl.com/)
 * [http://httpforever.com/](http://httpforever.com/)
 
-> *Insert screenshot: victim_browser.png*
+![](images/cover.png)
 
 ---
 
@@ -180,7 +180,7 @@ arp.spoof on
 
 Kali will now place itself between the victim and the gateway (MITM).
 
-> *Insert screenshot: bettercap_discovery.png*
+![](images/cover.png)
 
 ---
 
@@ -202,7 +202,7 @@ You will see HTTP requests and responses in Bettercap’s console, for example:
 [net.sniff] 192.168.50.20:4321 → 192.168.50.1:80 POST /login.php username=test&password=123
 ```
 
-> *Insert screenshot: bettercap_sniff.png*
+![](images/cover.png)
 
 ---
 
@@ -216,7 +216,7 @@ sudo wireshark &
 
 Select the interface and use display filters such as `http` or `tcp.port == 80`.
 
-> *Insert screenshot: wireshark_http.png*
+![](images/cover.png)
 
 ---
 
@@ -230,7 +230,7 @@ Open Firefox and visit a test HTTP site from Step 5. Fill forms or perform searc
 
 Monitor Bettercap and Wireshark for cleartext GET/POST requests and credentials.
 
-> *Insert screenshot: exploit_example.png*
+![](images/cover.png)
 
 ---
 
@@ -248,7 +248,7 @@ Open later with Wireshark:
 wireshark /root/capture.pcap &
 ```
 
-> *Insert screenshot: capture_pcap.png*
+![](images/cover.png)
 
 ---
 
@@ -277,7 +277,7 @@ sudo arp -n
 
 If entries remain, restart the network interface or reboot the VM to clear stale ARP entries.
 
-> *Insert screenshot: cleanup.png*
+![](images/cover.png)
 
 ---
 
