@@ -32,7 +32,7 @@ The lab demonstrates how ARP works on a local network, how a Man‑in‑the‑Mi
   * `192.168.50.10` — Kali
   * `192.168.50.20` — Ubuntu
 
-![](images/cover.png)
+![](images/capture1.png)
 
 ---
 
@@ -48,7 +48,7 @@ The lab demonstrates how ARP works on a local network, how a Man‑in‑the‑Mi
    * **Enable DHCP:** checked
 5. Click **OK** to save.
 
-![](images/cover.png)
+![](images/capture2.png)
 
 ---
 
@@ -62,7 +62,7 @@ The lab demonstrates how ARP works on a local network, how a Man‑in‑the‑Mi
 
 * Same steps as Kali: Adapter 1 → NAT Network → `ARP_Lab` → OK.
 
-![](images/cover.png)
+![](images/capture3.png)
 
 ---
 
@@ -92,7 +92,7 @@ ping -c 4 192.168.50.20
 
 If replies arrive, the VMs can communicate.
 
-![](images/cover.png)
+![](images/capture4.png)
 
 ---
 
@@ -117,7 +117,7 @@ sudo apt install firefox -y
 
 A web browser is sufficient for generating HTTP requests for the demo.
 
-![](images/cover.png)
+![](images/capture5.png)
 
 ---
 
@@ -130,7 +130,7 @@ Suggested test sites:
 * [http://neverssl.com/](http://neverssl.com/)
 * [http://httpforever.com/](http://httpforever.com/)
 
-![](images/cover.png)
+![](images/capture6.png)
 
 ---
 
@@ -180,7 +180,7 @@ arp.spoof on
 
 Kali will now place itself between the victim and the gateway (MITM).
 
-![](images/cover.png)
+![](images/capture7.png)
 
 ---
 
@@ -202,7 +202,7 @@ You will see HTTP requests and responses in Bettercap’s console, for example:
 [net.sniff] 192.168.50.20:4321 → 192.168.50.1:80 POST /login.php username=test&password=123
 ```
 
-![](images/cover.png)
+![](images/capture8.png)
 
 ---
 
@@ -216,7 +216,7 @@ sudo wireshark &
 
 Select the interface and use display filters such as `http` or `tcp.port == 80`.
 
-![](images/cover.png)
+![](images/capture9.png)
 
 ---
 
@@ -230,7 +230,7 @@ Open Firefox and visit a test HTTP site from Step 5. Fill forms or perform searc
 
 Monitor Bettercap and Wireshark for cleartext GET/POST requests and credentials.
 
-![](images/cover.png)
+![](images/capture10.png)
 
 ---
 
@@ -247,9 +247,6 @@ Open later with Wireshark:
 ```bash
 wireshark /root/capture.pcap &
 ```
-
-![](images/cover.png)
-
 ---
 
 ## Step 12 — Cleanup and restore
@@ -276,8 +273,6 @@ sudo arp -n
 ```
 
 If entries remain, restart the network interface or reboot the VM to clear stale ARP entries.
-
-![](images/cover.png)
 
 ---
 
