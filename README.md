@@ -32,7 +32,7 @@ The lab demonstrates how ARP works on a local network, how a Man‑in‑the‑Mi
   * `192.168.50.10` — Kali
   * `192.168.50.20` — Ubuntu
 
-<img src="images/capture1.png" width="500" height="500">
+
 
 ---
 
@@ -48,7 +48,7 @@ The lab demonstrates how ARP works on a local network, how a Man‑in‑the‑Mi
    * **Enable DHCP:** checked
 5. Click **OK** to save.
 
-<img src="images/capture2.png" width="500" height="500">
+<img src="images/capture1.png" width="500" height="500">
 
 ---
 
@@ -63,6 +63,7 @@ The lab demonstrates how ARP works on a local network, how a Man‑in‑the‑Mi
 * Same steps as Kali: Adapter 1 → NAT Network → `ARP_Lab` → OK.
 
 <img src="images/capture3.png" width="500" height="500">
+<img src="images/capture2.png" width="500" height="500">
 
 ---
 
