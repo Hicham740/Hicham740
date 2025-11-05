@@ -32,7 +32,7 @@ The lab demonstrates how ARP works on a local network, how a Man‑in‑the‑Mi
   * `192.168.50.10` — Kali
   * `192.168.50.20` — Ubuntu
 
-![](images/capture1.png)
+<img src="images/capture1.png" width="500" height="500">
 
 ---
 
@@ -48,7 +48,7 @@ The lab demonstrates how ARP works on a local network, how a Man‑in‑the‑Mi
    * **Enable DHCP:** checked
 5. Click **OK** to save.
 
-![](images/capture2.png)
+<img src="images/capture2.png" width="500" height="500">
 
 ---
 
@@ -62,7 +62,7 @@ The lab demonstrates how ARP works on a local network, how a Man‑in‑the‑Mi
 
 * Same steps as Kali: Adapter 1 → NAT Network → `ARP_Lab` → OK.
 
-![](images/capture3.png)
+<img src="images/capture3.png" width="500" height="500">
 
 ---
 
@@ -92,9 +92,10 @@ ping -c 4 192.168.50.20
 
 If replies arrive, the VMs can communicate.
 
-![](images/capture4.png)
-![](images/capture5.png)
-![](images/capture6.png)
+<img src="images/capture4.png" width="500" height="500">
+<img src="images/capture5.png" width="500" height="500">
+<img src="images/capture6.png" width="500" height="500">
+
 
 
 ---
@@ -120,7 +121,7 @@ sudo apt install firefox -y
 
 A web browser is sufficient for generating HTTP requests for the demo.
 
-![](images/capture7.png)
+<img src="images/capture7.png" width="500" height="500">
 
 
 ---
@@ -147,7 +148,7 @@ echo 1 | sudo tee /proc/sys/net/ipv4/ip_forward
 
 If you want it permanent, change `/etc/sysctl.conf` (optional).
 
-![](images/capture10.png)
+<img src="images/capture10.png" width="500" height="500">
 
 
 ---
@@ -186,7 +187,7 @@ arp.spoof on
 
 Kali will now place itself between the victim and the gateway (MITM).
 
-![](images/capture17.png)
+<img src="images/capture17.png" width="500" height="500">
 
 ---
 
@@ -254,7 +255,7 @@ Open later with Wireshark:
 wireshark /root/capture.pcap &
 ```
 ---
-![](images/capture103.png)
+<img src="images/capture103.png" width="500" height="500">
 
 ## Step 12 — Cleanup and restore
 
