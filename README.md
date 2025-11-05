@@ -208,7 +208,6 @@ You will see HTTP requests and responses in Bettercap’s console, for example:
 [net.sniff] 192.168.50.20:4321 → 192.168.50.1:80 POST /login.php username=test&password=123
 ```
 
-![](images/capture8.png)
 
 ---
 
@@ -222,7 +221,6 @@ sudo wireshark &
 
 Select the interface and use display filters such as `http` or `tcp.port == 80`.
 
-![](images/capture9.png)
 
 ---
 
@@ -236,8 +234,9 @@ Open Firefox and visit a test HTTP site from Step 5. Fill forms or perform searc
 
 Monitor Bettercap and Wireshark for cleartext GET/POST requests and credentials.
 
-![](images/capture101.png)
-![](images/capture102.png)
+<img src="images/capture101.png" width="300" height="200">
+<img src="images/capture102.png" width="300" height="200">
+
 
 ---
 
