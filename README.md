@@ -93,6 +93,7 @@ ping -c 4 192.168.50.20
 If replies arrive, the VMs can communicate.
 
 ![](images/capture4.png)
+![](images/capture5.png)
 
 ---
 
@@ -117,7 +118,7 @@ sudo apt install firefox -y
 
 A web browser is sufficient for generating HTTP requests for the demo.
 
-![](images/capture5.png)
+
 
 ---
 
