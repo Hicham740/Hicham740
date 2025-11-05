@@ -182,7 +182,7 @@ arp.spoof on
 
 Kali will now place itself between the victim and the gateway (MITM).
 
-
+![](images/capture17.png)
 
 ---
 
@@ -232,7 +232,8 @@ Open Firefox and visit a test HTTP site from Step 5. Fill forms or perform searc
 
 Monitor Bettercap and Wireshark for cleartext GET/POST requests and credentials.
 
-![](images/capture10.png)
+![](images/capture101.png)
+![](images/capture102.png)
 
 ---
 
@@ -250,6 +251,7 @@ Open later with Wireshark:
 wireshark /root/capture.pcap &
 ```
 ---
+![](images/capture103.png)
 
 ## Step 12 — Cleanup and restore
 
