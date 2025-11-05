@@ -118,6 +118,7 @@ sudo apt install firefox -y
 
 A web browser is sufficient for generating HTTP requests for the demo.
 
+![](images/capture7.png)
 
 
 ---
@@ -181,7 +182,7 @@ arp.spoof on
 
 Kali will now place itself between the victim and the gateway (MITM).
 
-![](images/capture7.png)
+
 
 ---
 
