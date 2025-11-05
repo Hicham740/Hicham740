@@ -94,6 +94,8 @@ If replies arrive, the VMs can communicate.
 
 ![](images/capture4.png)
 ![](images/capture5.png)
+![](images/capture6.png)
+
 
 ---
 
@@ -132,7 +134,6 @@ Suggested test sites:
 * [http://neverssl.com/](http://neverssl.com/)
 * [http://httpforever.com/](http://httpforever.com/)
 
-![](images/capture6.png)
 
 ---
 
@@ -145,6 +146,9 @@ echo 1 | sudo tee /proc/sys/net/ipv4/ip_forward
 ```
 
 If you want it permanent, change `/etc/sysctl.conf` (optional).
+
+![](images/capture10.png)
+
 
 ---
 
