@@ -245,6 +245,9 @@ Open Firefox and visit a test HTTP site from Step 5. Fill forms or perform searc
 Monitor Bettercap for cleartext GET/POST requests and credentials.
 
 <img src="images/capture102.png" width="500" height="500">
+
+View captured user credentials in the attacker’s terminal.
+
 <img src="images/capture103.png" width="500" height="500">
 
 ---
@@ -276,7 +279,7 @@ If entries remain, restart the network interface or reboot the VM to clear stale
 
 ---
 
-## Run Bettercap (helper script)
+## Run Bettercap — helper script
 
 Below is a small helper script you can ship in `scripts/run_bettercap.sh`.  
 It performs a minimal install of `bettercap` if missing, enables IPv4 forwarding, and then runs `bettercap` with a provided caplet. It is intended for quick lab use (must be run as `root`).
