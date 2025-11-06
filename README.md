@@ -232,31 +232,22 @@ Select the interface and use display filters such as `http` or `tcp.port == 80`.
 
 Open Firefox and visit a test HTTP site from Step 5. Fill forms or perform searches to generate requests.
 
-### On Kali (attacker)
-
-Monitor Bettercap and Wireshark for cleartext GET/POST requests and credentials.
-
 <img src="images/capture101.png" width="500" height="500">
-<img src="images/capture102.png" width="500" height="500">
+
 
 
 ---
 
 ## Step 11 — Save the capture (optional)
 
-To log traffic to a pcap file with bettercap:
+### On Kali (attacker)
 
-```bash
-sudo bettercap -iface eth0 -eval "set arp.spoof.targets 192.168.50.20; arp.spoof on; set net.sniff.output /root/capture.pcap; net.sniff on"
-```
+Monitor Bettercap for cleartext GET/POST requests and credentials.
 
-Open later with Wireshark:
-
-```bash
-wireshark /root/capture.pcap &
-```
----
+<img src="images/capture102.png" width="500" height="500">
 <img src="images/capture103.png" width="500" height="500">
+
+---
 
 ## Step 12 — Cleanup and restore
 
@@ -282,6 +273,87 @@ sudo arp -n
 ```
 
 If entries remain, restart the network interface or reboot the VM to clear stale ARP entries.
+
+---
+
+## Run Bettercap (helper script)
+
+Below is a small helper script you can ship in `scripts/run_bettercap.sh`.  
+It performs a minimal install of `bettercap` if missing, enables IPv4 forwarding, and then runs `bettercap` with a provided caplet. It is intended for quick lab use (must be run as `root`).
+
+```bash
+#!/usr/bin/env bash
+# Minimal installer + runner for bettercap with a caplet in the same folder.
+# Usage: sudo ./scripts/run_bettercap.sh <IFACE> <CAPLET_PATH>
+# - Enables IPv4 forwarding while bettercap runs, disables it on exit
+
+set -euo pipefail
+
+IFACE="${1:-}"
+CAPLET="${2:-}"
+
+if [ -z "$IFACE" ] || [ -z "$CAPLET" ]; then
+  echo "Usage: sudo $0 <IFACE> <CAPLET_PATH>"
+  exit 2
+fi
+
+if [ "$(id -u)" -ne 0 ]; then
+  echo "[!] This script must be run as root (sudo)."
+  exit 3
+fi
+
+cleanup() {
+  echo
+  echo "[*] Cleaning up: disabling IPv4 forwarding..."
+  sysctl -w net.ipv4.ip_forward=0 >/dev/null 2>&1 || true
+}
+trap cleanup EXIT INT TERM
+
+# Checking if bettercap installed
+if ! command -v bettercap >/dev/null 2>&1; then
+  echo "[*] bettercap not found. Attempting quick install..."
+
+  # Trying to install with go
+  if command -v go >/dev/null 2>&1; then
+    echo "[*] Found 'go' in PATH — using 'go install' to install bettercap..."
+    if go install github.com/bettercap/bettercap/v2@latest; then
+      export PATH="$PATH:$(go env GOPATH 2>/dev/null)/bin"
+      echo "[*] bettercap installed to $(command -v bettercap || echo 'GOBIN')"
+    else
+      echo "[!] 'go install' failed. Please install bettercap manually and re-run."
+      exit 4
+    fi
+  # Trying to install using apt-get
+  elif command -v apt-get >/dev/null 2>&1; then
+    echo "[*] Attempting 'apt-get install bettercap' (may be outdated on some distros)..."
+    apt-get update && apt-get install -y bettercap || {
+      echo "[!] apt-get install failed. Please install bettercap manually and re-run."
+      exit 5
+    }
+  else
+    echo "[!] No automatic install method available (no 'go' and no apt)."
+    echo "    Please install bettercap manually: https://www.bettercap.org"
+    exit 6
+  fi
+else
+  echo "[*] bettercap found: $(command -v bettercap)"
+fi
+
+# confirm caplet exists
+if [ ! -f "$CAPLET" ]; then
+  echo "[!] Caplet not found at path: $CAPLET"
+  exit 7
+fi
+
+echo "[*] Enabling IPv4 forwarding..."
+sysctl -w net.ipv4.ip_forward=1 >/dev/null
+
+echo "[*] Running bettercap with caplet: $CAPLET on interface $IFACE"
+echo "[*] NOTE: This run does not save captures or logs (per script settings)."
+echo "[*] Press Ctrl+C to stop bettercap and restore forwarding."
+
+exec bettercap -iface "$IFACE" -caplet "$CAPLET"
+```
 
 ---
 
